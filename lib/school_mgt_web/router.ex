@@ -18,6 +18,8 @@ defmodule SchoolMgtWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :index
+
+    resources "/school", SchoolMgtController
   end
 
   # Other scopes may use custom stacks.
