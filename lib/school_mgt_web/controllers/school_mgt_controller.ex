@@ -33,4 +33,3 @@ defmodule SchoolMgtWeb.SchoolMgtController do
     redirect(conn, to: Routes.school_mgt_path(conn, :index))
   end
 end
-#nice 69
