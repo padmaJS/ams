@@ -3,7 +3,7 @@ defmodule SchoolMgt.Repo.Migrations.CreateSchoolMgt do
 
   def change do
     create table(:class) do
-      add :class_number, :integer
+      add :class_name, :integer
       add :section, :string
     end
   end
