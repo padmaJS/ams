@@ -1,9 +1,9 @@
 <h1>Editing</h1>
 <%= form_for @changeset, Routes.school_mgt_path(@conn, :update, @class), fn f -> %>
-<h2>Name:</h2>
-<%= text_input f, :name %>
-<h2>Section:</h2>
-<%= text_input f, :section %>
-<%= submit "Save" %>
+    <h2>Name:</h2>
+    <%= text_input f, :name %>
+    <h2>Section:</h2>
+    <%= text_input f, :section %>
+    <%= submit "Save" %>
 <% end %>
 <%= link "Back to home", to: Routes.school_mgt_path(@conn, :index) %>
