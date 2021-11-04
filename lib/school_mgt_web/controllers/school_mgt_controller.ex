@@ -7,6 +7,10 @@ defmodule SchoolMgtWeb.SchoolMgtController do
     render(conn, "index.html", class_rooms: class_rooms)
   end
 
+  def show(conn, %{"id" => id}) do
+    class = ClassRooms.get_class(id)
+    render(conn, "show.html", class: class)
+  end
   def new(conn, _) do
     changeset = ClassRooms.change_class(%Room{})
     render(conn, "new.html", changeset: changeset)
