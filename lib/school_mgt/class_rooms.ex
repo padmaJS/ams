@@ -1,32 +1,32 @@
-defmodule SchoolMgt.Classes do
+defmodule SchoolMgt.ClassRooms do
   alias SchoolMgt.Repo
-  alias SchoolMgt.Classes.Class
+  alias SchoolMgt.ClassRooms.Room
 
   def list_class() do
-    Repo.all(Class)
+    Repo.all(Room)
   end
 
   def change_class(class, attr \\ %{}) do
-    Class.changeset(class, attr)
+    Room.changeset(class, attr)
   end
 
   def create_class(class) do
-    Class.changeset(%Class{}, class)
+    Room.changeset(%Room{}, class)
     |> Repo.insert!()
   end
 
   def get_class(id) do
-    Repo.get!(Class, id)
+    Repo.get!(Room, id)
   end
 
   def update_class(id, attr) do
-    Repo.get(Class, id)
-    |> Class.changeset(attr)
+    Repo.get(Room, id)
+    |> Room.changeset(attr)
     |> Repo.update!()
   end
 
   def delete_class(id) do
-    Repo.get!(Class, id)
+    Repo.get!(Room, id)
     |> Repo.delete!()
   end
 end

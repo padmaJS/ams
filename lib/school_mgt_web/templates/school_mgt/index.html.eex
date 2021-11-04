@@ -4,7 +4,7 @@
 <th>Name</th>
 <th>Section</th>
 </tr>
-<%= for class <- @classes  do %>
+<%= for class <- @class_rooms  do %>
 <tr>
 <td><%= class.name %></td>
 <td><%= class.section %></td>
