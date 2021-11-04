@@ -1,17 +1,18 @@
 <h1>Classes in our School</h1>
 <table>
-<tr>
-<th>Name</th>
-<th>Section</th>
-</tr>
-<%= for class <- @classes  do %>
-<tr>
-<td><%= class.name %></td>
-<td><%= class.section %></td>
-<td><%= link "Delete", to: Routes.school_mgt_path(@conn, :delete, class), method: :delete %></td>
-<td><%= link "Edit", to: Routes.school_mgt_path(@conn, :edit, class) %></td>
-</tr>
-<% end %>
+    <tr>
+        <th>Name</th>
+        <th>Section</th>
+        <th>Actions</th>
+    </tr>
+    <%= for class <- @class_rooms  do %>
+    <tr>
+        <td><%= class.name %></td>
+        <td><%= class.section %></td>
+        <td><%= link "Delete", to: Routes.school_mgt_path(@conn, :delete, class), method: :delete %>
+        <%= link "Edit", to: Routes.school_mgt_path(@conn, :edit, class) %></td>
+    </tr>
+    <% end %>
 </table>
 
 <%= link "Add Class", to: Routes.school_mgt_path(@conn, :new) %>

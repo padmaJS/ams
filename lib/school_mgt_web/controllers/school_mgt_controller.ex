@@ -1,35 +1,35 @@
 defmodule SchoolMgtWeb.SchoolMgtController do
   use SchoolMgtWeb, :controller
-  alias SchoolMgt.Classes
-  alias SchoolMgt.Classes.Class
+  alias SchoolMgt.ClassRooms
+  alias SchoolMgt.ClassRooms.Room
   def index(conn, _) do
-    classes = Classes.list_class()
-    render(conn, "index.html", classes: classes)
+    class_rooms = ClassRooms.list_class()
+    render(conn, "index.html", class_rooms: class_rooms)
   end
 
   def new(conn, _) do
-    changeset = Classes.change_class(%Class{})
+    changeset = ClassRooms.change_class(%Room{})
     render(conn, "new.html", changeset: changeset)
   end
 
-  def create(conn, %{"class" => class_data}) do
-    Classes.create_class(class_data)
+  def create(conn, %{"room" => room_data}) do
+    ClassRooms.create_class(room_data)
     redirect(conn, to: Routes.school_mgt_path(conn, :index))
   end
 
   def edit(conn, %{"id" => id}) do
-    class = Classes.get_class(id)
-    changeset = Classes.change_class(class)
+    class = ClassRooms.get_class(id)
+    changeset = ClassRooms.change_class(class)
     render(conn, "edit.html", changeset: changeset, class: class)
   end
 
-  def update(conn, %{"id" => id, "class" => class_data}) do
-    Classes.update_class(id, class_data)
+  def update(conn, %{"id" => id, "room" => room_data}) do
+    ClassRooms.update_class(id, room_data)
     redirect(conn, to: Routes.school_mgt_path(conn, :index))
   end
 
   def delete(conn, %{"id" => id}) do
-    Classes.delete_class(id)
+    ClassRooms.delete_class(id)
     redirect(conn, to: Routes.school_mgt_path(conn, :index))
   end
 end

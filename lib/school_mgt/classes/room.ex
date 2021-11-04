@@ -1,8 +1,8 @@
-defmodule SchoolMgt.Classes.Class do
+defmodule SchoolMgt.ClassRooms.Room do
   import Ecto.Changeset
   use Ecto.Schema
 
-  schema "classes" do
+  schema "class_rooms" do
     field :name, :string
     field :section, :string
   end
