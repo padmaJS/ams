@@ -1,4 +1,4 @@
-defmodule SchoolMgt.ClassRooms.Room do
+defmodule SchoolMgt.ClassRooms.ClassRoom do
   import Ecto.Changeset
   use Ecto.Schema
 

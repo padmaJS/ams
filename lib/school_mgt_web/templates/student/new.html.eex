@@ -1,9 +1,9 @@
 <h1>Adding new Student</h1>
-<%= form_for @changeset, Routes.school_mgt_student_path(@conn, :create), fn f -> %>
+<%= form_for @changeset, Routes.class_room_student_path(@conn, :create, @id), fn f -> %>
   <h2>Name:</h2>
   <%= text_input f, :name %>
   <h2>Age:</h2>
   <%= text_input f, :age %>
   <%= submit "Add" %>
 <% end %>
-<%= link "Back to home", to: Routes.school_mgt_student_path(@conn, :index) %>
+<%= link "Back to home", to: Routes.class_room_path(@conn, :show, @id) %>

@@ -10,8 +10,8 @@ defmodule SchoolMgt.Students do
     Student.changeset(student, attr)
   end
 
-  def create_student(student) do
-    Student.changeset(%Student{}, student)
+  def create_student(student, id) do
+    change_student(%Student{:class_room_id => String.to_integer(id)}, student)
     |> Repo.insert!()
   end
 
@@ -28,5 +28,9 @@ defmodule SchoolMgt.Students do
   def delete_student(id) do
     Repo.get!(Student, id)
     |> Repo.delete!()
+  end
+
+  def get_student_by_class_id(id) do
+    Repo.get_by(Student, classroom_id: id)
   end
 end

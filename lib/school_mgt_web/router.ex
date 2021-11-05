@@ -19,11 +19,9 @@ defmodule SchoolMgtWeb.Router do
 
     get "/", PageController, :index
 
-    resources "/classrooms", SchoolMgtController do
+    resources "/classrooms", ClassRoomController do
       resources "/students", StudentController
     end
-
-
   end
 
   # Other scopes may use custom stacks.

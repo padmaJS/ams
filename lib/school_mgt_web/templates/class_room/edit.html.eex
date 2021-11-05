@@ -1,0 +1,9 @@
+<h1>Editing <%= @class.name %> (<%= @class.id %>) </h1>
+<%= form_for @changeset, Routes.class_room_path(@conn, :update, @class), fn f -> %>
+    <h2>Name:</h2>
+    <%= text_input f, :name %>
+    <h2>Section:</h2>
+    <%= text_input f, :section %>
+    <%= submit "Save" %>
+<% end %>
+<%= link "Back to home", to: Routes.class_room_path(@conn, :index) %>

@@ -5,12 +5,12 @@ defmodule SchoolMgt.Students.Student do
   schema "students" do
     field :name, :string
     field :age, :integer
-    belongs_to :room, SchoolMgt.ClassRooms.Room
+    belongs_to :class_room, SchoolMgt.ClassRooms.ClassRoom
   end
 
   def changeset(student, attr) do
     student
-    |> cast(attr, [:name, :age])
+    |> cast(attr, [:name, :age, :class_room_id])
     |> validate_required([:name])
   end
 end

@@ -9,10 +9,10 @@
     <tr>
         <td><%= student.name %></td>
         <td><%= student.age %></td>
-        <td><%= link "Delete", to: Routes.school_mgt_student_path(@conn, :delete, student), method: :delete %>
-        <%= link "Edit", to: Routes.school_mgt_student_path(@conn, :edit, student) %></td>
+        <td><%= link "Delete", to: Routes.class_room_student_path(@conn, :delete, student), method: :delete %>
+        <%= link "Edit", to: Routes.class_room_student_path(@conn, :edit, student) %></td>
     </tr>
     <% end %>
 </table>
 
-<%= link "Add Student", to: Routes.school_mgt_student_path(@conn, :new) %>
+<%= link "Add Student", to: Routes.class_room_student_path(@conn, :new) %>
