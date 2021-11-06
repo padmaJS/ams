@@ -16,12 +16,10 @@ defmodule SchoolMgt.Students do
   end
 
   def get_student(id) do
-    sid = String.to_integer(id)
-    Repo.get!(Student, sid)
+    Repo.get!(Student, id)
   end
 
   def update_student(id, attr) do
-    id = String.to_integer(id)
     Repo.get(Student, id)
     |> Student.changeset(attr)
     |> Repo.update!()
