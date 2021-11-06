@@ -33,7 +33,7 @@ defmodule SchoolMgt.ClassRooms do
     |> Repo.delete!()
   end
 
-  def get_student_by(id) do
+  def list_students_for_class(id) do
     num_id = String.to_integer(id)
     Repo.all(Student)
     |> Enum.filter(fn i -> i.class_room_id == num_id end)
