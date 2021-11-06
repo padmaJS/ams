@@ -15,4 +15,4 @@
     <% end %>
 </table>
 
-<%= link "Add Student", to: Routes.class_room_student_path(@conn, :new) %>
+<%# <%= link "Add Student", to: Routes.class_room_student_path(@conn, :new) %> %>
