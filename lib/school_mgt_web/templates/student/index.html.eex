@@ -1,0 +1,18 @@
+<h1>Students in class</h1>
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Actions</th>
+    </tr>
+    <%= for student <- @students  do %>
+    <tr>
+        <td><%= student.name %></td>
+        <td><%= student.age %></td>
+        <td><%= link "Delete", to: Routes.class_room_student_path(@conn, :delete, student), method: :delete %>
+        <%= link "Edit", to: Routes.class_room_student_path(@conn, :edit, student) %></td>
+    </tr>
+    <% end %>
+</table>
+
+<%= link "Add Student", to: Routes.class_room_student_path(@conn, :new) %>

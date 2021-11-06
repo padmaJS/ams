@@ -1,0 +1,27 @@
+<%= if @students do %>
+
+<h1>Students in class <%= @class_room_id %></h1>
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Actions</th>
+    </tr>
+    <%= for student <- @students  do %>
+    <tr>
+        <td><%= student.name %></td>
+        <td><%= student.age %></td>
+        <td>
+            <%= link "Delete", to: Routes.class_room_student_path(@conn, :delete, @class_room_id, student), method: :delete %>
+            <%= link "Edit", to: Routes.class_room_student_path(@conn, :edit, student, @class_room_id) %>
+        </td>
+    </tr>
+    <% end %>
+</table>
+<% end %>
+
+<%= if !@students do %>
+    <h1>No students in the class</h1>
+<% end %>
+<span style = "border:1px solid black; border-radius: 20px;" ><%= link "Back to Class page", to: Routes.class_room_path(@conn, :index) %></span>
+<span style = "border:1px solid black; border-radius: 20px;" ><%= link "Add Student", to: Routes.class_room_student_path(@conn, :new, @class_room_id) %></span>
