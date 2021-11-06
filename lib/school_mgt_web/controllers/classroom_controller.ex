@@ -10,7 +10,7 @@ defmodule SchoolMgtWeb.ClassRoomController do
   end
 
   def show(conn, %{"id" => id}) do
-    render(conn, "show.html", students: ClassRooms.get_student_by(id), class_room_id: id)
+    render(conn, "show.html", students: ClassRooms.list_students_for_class(id), class_room_id: id)
   end
 
   def new(conn, _) do

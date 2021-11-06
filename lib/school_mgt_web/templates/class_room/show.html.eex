@@ -13,7 +13,7 @@
         <td><%= student.age %></td>
         <td>
             <%= link "Delete", to: Routes.class_room_student_path(@conn, :delete, @class_room_id, student), method: :delete %>
-            <%= link "Edit", to: Routes.class_room_student_path(@conn, :edit, student, @class_room_id) %>
+            <%= link "Edit", to: Routes.class_room_student_path(@conn, :edit, @class_room_id, student) %>
         </td>
     </tr>
     <% end %>
