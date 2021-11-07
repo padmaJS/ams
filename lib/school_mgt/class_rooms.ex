@@ -1,6 +1,4 @@
 defmodule SchoolMgt.ClassRooms do
-  import Ecto.Query
-
   alias SchoolMgt.Repo
   alias SchoolMgt.ClassRooms.ClassRoom
   alias SchoolMgt.Students.Student
