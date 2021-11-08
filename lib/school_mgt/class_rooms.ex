@@ -1,5 +1,8 @@
 defmodule SchoolMgt.ClassRooms do
+<<<<<<< HEAD
   import Ecto.Query
+=======
+>>>>>>> e4272fb8d186ae7593a4ef0c51fd08363b53b4e5
   alias SchoolMgt.Repo
   alias SchoolMgt.ClassRooms.ClassRoom
   alias SchoolMgt.Students.Student
