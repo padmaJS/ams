@@ -11,7 +11,10 @@ defmodule SchoolMgt.Students do
   end
 
   def create_student(student, id) do
-    change_student(%Student{:class_room_id => String.to_integer(id)}, student)
+    # change_student(%Student{:class_room_id => id}, student)
+    # |> Repo.insert!()
+    student_params = Map.put student, "class_room_id", id
+    change_student(%Student{}, student_params)
     |> Repo.insert!()
   end
 

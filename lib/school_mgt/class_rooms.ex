@@ -1,6 +1,5 @@
 defmodule SchoolMgt.ClassRooms do
   import Ecto.Query
-
   alias SchoolMgt.Repo
   alias SchoolMgt.ClassRooms.ClassRoom
   alias SchoolMgt.Students.Student
@@ -34,10 +33,13 @@ defmodule SchoolMgt.ClassRooms do
   end
 
   def list_students_for_class(id) do
-    num_id = String.to_integer(id)
-    Repo.all(Student)
-    |> Enum.filter(fn i -> i.class_room_id == num_id end)
+    # Repo.all(Student)
+    # |> Enum.filter(fn i -> i.class_room_id == id end)
 
     # Repo.all(from u in Student, where: u.class_room_id == ^id)
+
+    Student
+    |> where([s], s.class_room_id == ^id)
+    |> Repo.all()
   end
 end
