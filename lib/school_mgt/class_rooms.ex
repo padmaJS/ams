@@ -29,8 +29,8 @@ defmodule SchoolMgt.ClassRooms do
   end
 
   def delete_class(id) do
-    Repo.get!(ClassRoom, id)
-    |> Repo.delete!()
+    Repo.get(ClassRoom, id)
+    |> Repo.delete()
   end
 
   def list_students_for_class(id) do

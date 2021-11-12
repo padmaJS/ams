@@ -5,7 +5,7 @@ defmodule SchoolMgt.ClassRooms.ClassRoom do
   schema "class_rooms" do
     field :name, :string
     field :section, :string
-    has_many :students, SchoolMgt.Students.Student
+    has_many :students, SchoolMgt.Students.Student, on_delete: :delete_all
   end
 
   def changeset(class, attr) do

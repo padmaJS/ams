@@ -8,7 +8,9 @@ defmodule SchoolMgtWeb.ClassRoomController do
   plug :check_auth when action in [:new, :create, :edit, :update, :delete]
 
   defp check_auth(conn, _) do
-    if user_id = get_session(conn, :user_id) do
+    user_id = get_session(conn, :user_id)
+    super_admin = get_session(conn, :super_admin)
+    if !!user_id and super_admin do
       current_user = Accounts.get_user(user_id)
 
       conn
@@ -16,10 +18,12 @@ defmodule SchoolMgtWeb.ClassRoomController do
     else
       conn
       |> put_flash(:error, "You are not authorized for accessing that page")
-      |> redirect(to: Routes.page_path(conn, :index))
+      |> redirect(to: Routes.class_room_path(conn, :index))
       |> halt()
     end
   end
+
+
 
   def index(conn, _) do
     class_rooms = ClassRooms.list_class()

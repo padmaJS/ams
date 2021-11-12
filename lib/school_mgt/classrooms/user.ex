@@ -5,6 +5,7 @@ defmodule SchoolMgt.User do
   schema "users" do
     field :username, :string
     field :encrypted_password, :string
+    field :super_admin, :boolean, default: :false
   end
 
   def changeset(user, params) do
