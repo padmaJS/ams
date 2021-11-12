@@ -23,5 +23,6 @@
 <%= if !@students do %>
     <h1>No students in the class</h1>
 <% end %>
-<span style = "border:1px solid black; border-radius: 20px;" ><%= link "Back to Class page", to: Routes.class_room_path(@conn, :index) %></span>
-<span style = "border:1px solid black; border-radius: 20px;" ><%= link "Add Student", to: Routes.class_room_student_path(@conn, :new, @class_room_id) %></span>
+<span><%= link "Back to Class page", to: Routes.class_room_path(@conn, :index) %></span>
+|
+<span><%= link "Add Student", to: Routes.class_room_student_path(@conn, :new, @class_room_id) %></span>

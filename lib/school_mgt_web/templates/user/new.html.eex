@@ -1,0 +1,9 @@
+<h1>Signing Up</h1>
+<%= form_for @changeset, Routes.user_path(@conn, :create), fn f -> %>
+  <h2>Username:</h2>
+  <%= text_input f, :username %>
+  <h2>Password:</h2>
+  <%= password_input f, :encrypted_password %>
+  <%= submit "Sign Up" %>
+<% end %>
+<%= link "Already have an account?", to: Routes.session_path(@conn, :new) %>

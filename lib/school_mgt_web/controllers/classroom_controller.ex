@@ -3,6 +3,23 @@ defmodule SchoolMgtWeb.ClassRoomController do
 
   alias SchoolMgt.ClassRooms
   alias SchoolMgt.ClassRooms.ClassRoom
+  alias SchoolMgt.Accounts
+
+  plug :check_auth when action in [:new, :create, :edit, :update, :delete]
+
+  defp check_auth(conn, _) do
+    if user_id = get_session(conn, :user_id) do
+      current_user = Accounts.get_user(user_id)
+
+      conn
+      |> assign(:current_user, current_user)
+    else
+      conn
+      |> put_flash(:error, "You are not authorized for accessing that page")
+      |> redirect(to: Routes.page_path(conn, :index))
+      |> halt()
+    end
+  end
 
   def index(conn, _) do
     class_rooms = ClassRooms.list_class()
