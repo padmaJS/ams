@@ -22,6 +22,12 @@ defmodule SchoolMgtWeb.Router do
     resources "/classrooms", ClassRoomController do
       resources "/students", StudentController
     end
+
+    resources "/register", UserController, only: [:new, :create]
+
+    get "/sign-in", SessionController, :new
+    post "/sign-in", SessionController, :create
+    delete "/sign-out", SessionController, :delete
   end
 
   # Other scopes may use custom stacks.

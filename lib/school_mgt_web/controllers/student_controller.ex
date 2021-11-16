@@ -2,6 +2,23 @@ defmodule SchoolMgtWeb.StudentController do
   use SchoolMgtWeb, :controller
   alias SchoolMgt.Students
   alias SchoolMgt.Students.Student
+  alias SchoolMgt.Accounts
+
+  plug :check_auth when action in [:new, :create, :edit, :update, :delete]
+
+  defp check_auth(conn, _) do
+    if user_id = get_session(conn, :user_id) do
+      current_user = Accounts.get_user(user_id)
+
+      conn
+      |> assign(:current_user, current_user)
+    else
+      conn
+      |> put_flash(:error, "You are not authorized for accessing that page")
+      |> redirect(to: Routes.page_path(conn, :index))
+      |> halt()
+    end
+  end
   def index(conn, %{"class_room_id" => id}) do
     students = Students.list_students()
     render(conn, "index.html", students: students, id: id)
